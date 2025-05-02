@@ -66,7 +66,7 @@
             <p class="text-xl md:text-2xl mb-8 max-w-xl text-gray-700">
                 Welcome to Adogtion — where tails wag and hearts connect. Your new best friend is just a few clicks away!
             </p>
-            <div class="flex flex-col sm:flex-row gap-4">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/dogs" class="bg-orange-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-orange-600 transition shadow-md">
                     Find Your Perfect Match
                 </a>
@@ -178,6 +178,8 @@
         </div>
     </section>
 </main>
+
+@include('footer')
 
 <style>
 .pattern-paw-prints {

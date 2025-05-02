@@ -8,3 +8,5 @@ User registration/login
 Ability for users to express interest or apply for adoption
 
 Admin panel to add/edit/delete dogs
+
+Donations

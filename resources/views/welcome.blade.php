@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adogtion - Home</title>
+    <title>Adogtion - Dashboard</title>
     @vite('resources/css/app.css')
 </head>
 <body class="bg-yellow-50 text-gray-800 font-sans">
@@ -39,7 +39,7 @@
     <!-- Featured Dogs Section -->
     <section class="py-16 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Meet Some of Our Friends <span class="text-orange-500">Looking for Homes</span></h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Meet Some of Our Friends <span class="text-orange-500">Looking for Dashboards</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse($featuredDogs as $dog)
                 <div class="bg-yellow-50 rounded-xl overflow-hidden shadow-lg transition hover:shadow-xl hover:-translate-y-1">

@@ -53,7 +53,19 @@ class DogController extends Controller
 
     public function show($id)
     {
-        $dog = Dog::findOrFail($id);
-        return view('dogs.show', compact('dog'));
+    $dog = Dog::findOrFail($id);
+
+    // Get 3 other available dogs, excluding the current one, optionally matching breed or size
+    $otherDogs = Dog::where('status', 'available')
+        ->where('id', '!=', $dog->id)
+        ->where(function($query) use ($dog) {
+            $query->where('breed', $dog->breed)
+                  ->orWhere('size', $dog->size);
+        })
+        ->inRandomOrder()
+        ->take(3)
+        ->get();
+
+    return view('dogs.show', compact('dog', 'otherDogs'));
     }
 }

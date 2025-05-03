@@ -1,24 +1,11 @@
-<!-- filepath: c:\Users\Harris\Documents\Studies\YEAR2 SEM2\Server side Development\CA3\dog-adoption-page\resources\views\welcome.blade.php -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adogtion</title>
-    @vite('resources/css/app.css')
-</head>
-<body class="bg-yellow-50 text-gray-800 font-sans">
+@extends('layouts.app')
 
-<!-- Navbar -->
-@include('navbar')
-
-<!-- Page content -->
-<main>
+@section('content')
     <!-- Hero Section -->
     <div class="min-h-[70vh] flex flex-col justify-center items-center px-4 text-center relative overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('../images/dog_background.jpg'); filter: brightness(0.9) contrast(1.1)"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-yellow-50/70 to-orange-50/70"></div>
-        
+
         <!-- Content -->
         <div class="relative z-10">
             <h1 class="text-5xl md:text-6xl font-extrabold text-orange-600 mb-4">🐶 Adogtion</h1>
@@ -37,7 +24,7 @@
     </div>
 
     <!-- Featured Dogs Section -->
-    <section class="py-16 px-4 bg-white">
+    <section class="py-16 px-4 bg-white mt-10">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Meet Some of Our Friends <span class="text-orange-500">Looking for Homes</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -61,7 +48,7 @@
                 </div>
                 @endforelse
             </div>
-            
+
             <div class="text-center mt-10">
                 <a href="/dogs" class="inline-flex items-center text-orange-500 font-bold hover:text-orange-600">
                     See all available dogs
@@ -77,7 +64,7 @@
     <section class="py-16 px-4 bg-orange-50">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Why <span class="text-orange-500">Adopt?</span></h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-xl shadow-md">
                     <div class="text-orange-500 mb-4">
@@ -88,7 +75,7 @@
                     <h3 class="text-xl font-bold mb-2 text-gray-800">Save a Life</h3>
                     <p class="text-gray-600">When you adopt, you're giving a deserving dog a second chance at a happy life.</p>
                 </div>
-                
+
                 <div class="bg-white p-6 rounded-xl shadow-md">
                     <div class="text-orange-500 mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -98,7 +85,7 @@
                     <h3 class="text-xl font-bold mb-2 text-gray-800">Find Your Companion</h3>
                     <p class="text-gray-600">Dogs provide unconditional love and companionship that enriches your life.</p>
                 </div>
-                
+
                 <div class="bg-white p-6 rounded-xl shadow-md">
                     <div class="text-orange-500 mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -113,10 +100,10 @@
     </section>
 
     <!-- Testimonial Section -->
-    <section class="py-16 px-4 bg-white">
+    <section class="py-16 px-4 bg-white mb-20">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Success <span class="text-orange-500">Stories</span></h2>
-            
+
             <div class="bg-orange-50 rounded-xl p-8 shadow-md">
                 <div class="flex flex-col md:flex-row gap-8 items-center">
                     <div class="w-full md:w-1/3">
@@ -136,23 +123,4 @@
             </div>
         </div>
     </section>
-</main>
-
-@include('footer')
-
-<style>
-.pattern-paw-prints {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M12 3.66c1.9 0 3-.76 3-2.5C15 0 14 0 12 0 10.24 0 9 .75 9 2.5c0 1.74 1.16 2.5 3 1.16zm5 4c1.9 0 3-.76 3-2.5C20 3.4 19 3.4 17 3.4c-1.76 0-3 .75-3 2.5 0 1.74 1.16 2.5 3 1.16zm10 0c1.9 0 3-.76 3-2.5 0-1.76-1-1.76-3-1.76-1.76 0-3 .75-3 2.5 0 1.74 1.16 2.5 3 1.16zm5 4c1.9 0 3-.76 3-2.5 0-1.76-1-1.76-3-1.76-1.76 0-3 .75-3 2.5 0 1.74 1.16 2.5 3 1.16zm-10 8c1.9 0 3-.76 3-2.5 0-1.76-1-1.76-3-1.76-1.76 0-3 .75-3 2.5 0 1.74 1.16 2.5 3 1.16zm-10 0c1.9 0 3-.76 3-2.5 0-1.76-1-1.76-3-1.76-1.76 0-3 .75-3 2.5 0 1.74 1.16 2.5 3 1.16z'/%3E%3C/g%3E%3C/svg%3E");
-}
-</style>
-
-<!-- JavaScript for mobile menu toggle -->
-<script>
-    document.getElementById('mobile-menu-button').addEventListener('click', function() {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
-    });
-</script>
-
-</body>
-</html>
+@endsection

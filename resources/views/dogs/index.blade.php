@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Dogs - Adogtion</title>
-    @vite('resources/css/app.css')
-</head>
-<body class="bg-yellow-50 text-gray-800 font-sans">
+@extends('layouts.app')
 
-<!-- Navbar -->
-@include('navbar', ['active' => 'home'])
-
-<!-- Page Header -->
+@section('content')
 <div class="bg-orange-500 text-white py-16 mb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl font-extrabold mb-4">Find Your Perfect Companion</h1>
@@ -91,7 +80,7 @@
                             Apply
                         </button>
                         <a href="/dogs" class="flex-1 bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 transition text-center">
-                            Clear 
+                            Clear
                         </a>
                     </div>
                 </form>
@@ -176,16 +165,4 @@
         </div>
     </div>
 </section>
-
-@include('footer')
-
-<!-- JavaScript for mobile menu toggle -->
-<script>
-    document.getElementById('mobile-menu-button').addEventListener('click', function() {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
-    });
-</script>
-
-</body>
-</html>
+@endsection

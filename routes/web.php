@@ -10,3 +10,5 @@ Route::get('/', [HomeController::class, 'index']);
 // Dog routes
 Route::get('/dogs', [DogController::class, 'index']);
 Route::get('/dogs/{id}', [DogController::class, 'show']);
+
+require __DIR__.'/auth.php';

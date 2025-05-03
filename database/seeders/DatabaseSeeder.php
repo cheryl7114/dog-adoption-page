@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         // call other seeders
         $this->call([
             DogSeeder::class,
+            UserSeeder::class, // Add this line
         ]);
 
         User::factory()->create([

@@ -10,7 +10,7 @@ class AdoptionRequestController extends Controller
 {
     public function create(Dog $dog)
     {
-        return view('adoption-request.create', compact('dog'));
+        return view('adoption.create', compact('dog'));
     }
 
     public function store(Request $request, Dog $dog)
@@ -30,6 +30,6 @@ class AdoptionRequestController extends Controller
             'status' => 'pending',
         ]);
 
-        return redirect()->route('adoption-request.create', $dog)->with('success', 'Your adoption request has been submitted!');
+        return redirect()->route('adoption.create', $dog)->with('success', 'Your adoption request has been submitted!');
     }
 }

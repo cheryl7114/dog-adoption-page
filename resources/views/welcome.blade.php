@@ -7,7 +7,7 @@
     <title>Adogtion</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-yellow-50 text-gray-800 font-sans">
+<body class="text-gray-800 font-sans">
 
 <!-- Navbar -->
 @include('navbar')
@@ -18,7 +18,7 @@
     <div class="min-h-[70vh] flex flex-col justify-center items-center px-4 text-center relative overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('../images/dog_background.jpg'); filter: brightness(0.9) contrast(1.1)"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-yellow-50/70 to-orange-50/70"></div>
-        
+
         <!-- Content -->
         <div class="relative z-10">
             <h1 class="text-5xl md:text-6xl font-extrabold text-orange-600 mb-4">🐶 Adogtion</h1>
@@ -37,7 +37,7 @@
     </div>
 
     <!-- Featured Dogs Section -->
-    <section class="py-16 px-4 bg-white">
+    <section class="py-16 px-4 bg-white mt-10">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Meet Some of Our Friends <span class="text-orange-500">Looking for Homes</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -61,7 +61,7 @@
                 </div>
                 @endforelse
             </div>
-            
+
             <div class="text-center mt-10">
                 <a href="/dogs" class="inline-flex items-center text-orange-500 font-bold hover:text-orange-600">
                     See all available dogs
@@ -77,7 +77,7 @@
     <section class="py-16 px-4 bg-orange-50">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Why <span class="text-orange-500">Adopt?</span></h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-xl shadow-md">
                     <div class="text-orange-500 mb-4">
@@ -88,7 +88,7 @@
                     <h3 class="text-xl font-bold mb-2 text-gray-800">Save a Life</h3>
                     <p class="text-gray-600">When you adopt, you're giving a deserving dog a second chance at a happy life.</p>
                 </div>
-                
+
                 <div class="bg-white p-6 rounded-xl shadow-md">
                     <div class="text-orange-500 mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -98,7 +98,7 @@
                     <h3 class="text-xl font-bold mb-2 text-gray-800">Find Your Companion</h3>
                     <p class="text-gray-600">Dogs provide unconditional love and companionship that enriches your life.</p>
                 </div>
-                
+
                 <div class="bg-white p-6 rounded-xl shadow-md">
                     <div class="text-orange-500 mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -113,10 +113,10 @@
     </section>
 
     <!-- Testimonial Section -->
-    <section class="py-16 px-4 bg-white">
+    <section class="py-16 px-4 bg-white mb-20">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Success <span class="text-orange-500">Stories</span></h2>
-            
+
             <div class="bg-orange-50 rounded-xl p-8 shadow-md">
                 <div class="flex flex-col md:flex-row gap-8 items-center">
                     <div class="w-full md:w-1/3">

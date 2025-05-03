@@ -69,12 +69,34 @@
 </section>
 
 <!-- Other Dogs Section -->
-<section class="py-16 px-4 bg-orange-50">
+<section class="py-16 px-14 bg-orange-100">
     <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">You May Also <span class="text-orange-500">Like</span></h2>
-        
-        <!-- To be implemented: Show other dogs with similar attributes -->
-        <p class="text-center text-gray-600">Check out our other amazing dogs looking for their forever homes!</p>
+        @if($otherDogs->count())
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                @foreach($otherDogs as $other)
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <a href="{{ url('/dogs/'.$other->id) }}">
+                            <img src="{{ asset($other->image_path) }}" alt="{{ $other->name }}" class="w-full h-56 object-cover">
+                        </a>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $other->name }}</h3>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{{ ucfirst($other->size) }}</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{{ ucfirst($other->sex) }}</span>
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{{ $other->age }} {{ $other->age == 1 ? 'year' : 'years' }}</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 line-clamp-2">{{ \Illuminate\Support\Str::limit($other->description, 60) }}</p>
+                            <a href="{{ url('/dogs/'.$other->id) }}" class="inline-block bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-600 transition">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <p class="text-center text-gray-600 mb-8">Check out our other amazing dogs looking for their forever homes!</p>
+        @endif
         <div class="text-center mt-8">
             <a href="/dogs" class="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition">
                 View All Available Dogs

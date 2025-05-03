@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $dog->name }} - Adogtion</title>
-    @vite('resources/css/app.css')
-</head>
-<body class="bg-yellow-50 text-gray-800 font-sans">
+@extends('layouts.app')
 
-<!-- Navbar -->
-@include('navbar')
-
+@section('content')
 <!-- Breadcrumbs -->
 <div class="bg-orange-100 py-3">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,32 +24,32 @@
                     <img src="{{ asset($dog->image_path) }}" alt="{{ $dog->name }}" class="w-full h-auto rounded-lg object-cover aspect-square">
                 </div>
             </div>
-            
+
             <!-- Dog Info -->
             <div>
                 <div class="bg-white p-8 rounded-xl shadow-md">
                     <h1 class="text-3xl font-bold text-gray-800 mb-2">{{ $dog->name }}</h1>
-                    
+
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">{{ ucfirst($dog->size) }}</span>
                         <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">{{ ucfirst($dog->sex) }}</span>
                         <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">{{ $dog->age }} {{ $dog->age == 1 ? 'year old' : 'years old' }}</span>
                     </div>
-                    
+
                     <div class="space-y-6">
                         <div>
                             <h2 class="text-lg font-semibold text-gray-800 mb-2">Breed</h2>
                             <p class="text-gray-600">{{ $dog->breed }}</p>
                         </div>
-                        
+
                         <div>
                             <h2 class="text-lg font-semibold text-gray-800 mb-2">About {{ $dog->name }}</h2>
                             <p class="text-gray-600">{{ $dog->description }}</p>
                         </div>
-                        
+
                         <div class="border-t border-gray-200 pt-6">
                             <h2 class="text-lg font-semibold text-gray-800 mb-4">Interested in adopting {{ $dog->name }}?</h2>
-                            <a href="/adoption-request/{{ $dog->id }}" class="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition">Submit Adoption Request</a>
+                            <a href="{{ route('adoption.create', $dog) }}" class="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition">Submit Adoption Request</a>
                         </div>
                     </div>
                 </div>
@@ -104,16 +94,4 @@
         </div>
     </div>
 </section>
-
-@include('footer')
-
-<!-- JavaScript for mobile menu toggle -->
-<script>
-    document.getElementById('mobile-menu-button').addEventListener('click', function() {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
-    });
-</script>
-
-</body>
-</html>
+@endsection

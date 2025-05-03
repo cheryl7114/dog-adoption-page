@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DogController;
 
 // Home route
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Dog routes
 Route::get('/dogs', [DogController::class, 'index']);

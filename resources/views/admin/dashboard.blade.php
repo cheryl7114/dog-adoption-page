@@ -109,7 +109,6 @@
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                     <tr>
                                         <th scope="col" class="py-3 px-6">#</th>
-                                        <th scope="col" class="py-3 px-6">Image</th>
                                         <th scope="col" class="py-3 px-6">Name</th>
                                         <th scope="col" class="py-3 px-6">Breed</th>
                                         <th scope="col" class="py-3 px-6">Age</th>
@@ -121,15 +120,6 @@
                                     @foreach($dogs as $dog)
                                         <tr class="bg-white border-b">
                                             <td class="py-4 px-6">{{ $dog->id }}</td>
-                                            <td class="py-4 px-6">
-                                                @if($dog->image)
-                                                    <img src="{{ asset('storage/' . $dog->image) }}" alt="{{ $dog->name }}" class="w-10 h-10 rounded-full object-cover">
-                                                @else
-                                                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-                                                        <span class="text-orange-500">🐶</span>
-                                                    </div>
-                                                @endif
-                                            </td>
                                             <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                                                 {{ $dog->name }}
                                             </td>

@@ -1,4 +1,4 @@
-<nav class="bg-gradient-to-r from-orange-500 to-amber-500 shadow-lg">
+<nav class="sticky top-0 z-50 bg-gradient-to-r from-orange-500/95 to-amber-500/95 backdrop-blur-sm shadow-lg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <!-- Logo and brand -->
@@ -31,23 +31,26 @@
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                         </svg>
                     </button>
-                
+                    
                     <div x-show="open" 
                          style="display: none;"
                          class="absolute right-0 mt-2 w-48 bg-white py-2 rounded-md shadow-lg z-50" 
                          x-transition:enter="transition ease-out duration-100" 
                          x-transition:enter-start="transform opacity-0 scale-95" 
                          x-transition:enter-end="transform opacity-100 scale-100">
+                        
+                        @if(Auth::user()->role === 'admin')
+                            <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admin Dashboard</a>
+                        @endif
+                        
                         <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
-                        <a href="{{ route('logout') }}"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                            {{ __('Logout') }}
-                        </a>
+                        <form method="POST" action="{{ route('logout') }}" id="logout-form">
+                            @csrf
+                            <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                {{ __('Logout') }}
+                            </button>
+                        </form>
                     </div>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                        @csrf
-                    </form>
                 </div>
                 @endguest
             </div>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AdoptionRequest extends Model
 {
-    protected $fillable = [
+   protected $fillable = [
         'user_id',
         'dog_id',
         'contact_email',
@@ -14,4 +14,14 @@ class AdoptionRequest extends Model
         'message',
         'status',
     ];
+
+    public function dog()
+    {
+        return $this->belongsTo(Dog::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

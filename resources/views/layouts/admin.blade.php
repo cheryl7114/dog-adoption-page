@@ -12,7 +12,7 @@
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        @include('navbar')
+        @include('layouts.navbar')
 
         <div class="flex">
             <!-- Admin Sidebar -->
@@ -24,7 +24,7 @@
                     <a href="{{ route('admin.dashboard') }}" class="flex items-center px-6 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-700 {{ request()->routeIs('admin.dashboard') ? 'bg-orange-100 text-orange-700' : '' }}">
                         Dashboard
                     </a>
-                    <a href="#" class="flex items-center px-6 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-700">
+                    <a href="{{ route('admin.adoption') }}" class="flex items-center px-6 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-700">
                         Adoption Requests
                     </a>
                     <a href="#" class="flex items-center px-6 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-700">
@@ -32,7 +32,7 @@
                     </a>
                 </nav>
             </div>
-            
+
             <!-- Main Content -->
             <div class="flex-1 p-6">
                 @yield('content')

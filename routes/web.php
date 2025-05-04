@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DogController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminAdoptionRequestController;
 use App\Http\Controllers\AdoptionRequestController;
 
 // Home route
@@ -25,7 +26,9 @@ Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware
         'update' => 'admin.dogs.update',
         'destroy' => 'admin.dogs.destroy',
     ]);
-    // Route::resource('adoption-requests', AdminAdoptionRequestController::class);
+    Route::get('/admin/adoption', [AdminAdoptionRequestController::class, 'index'])->name('admin.adoption');
+    Route::patch('/admin/adoption/{adoptionRequest}/approve', [AdminAdoptionRequestController::class, 'approveAdoptionRequest'])->name('admin.adoption.approve');
+    Route::patch('/admin/adoption/{adoptionRequest}/reject', [AdminAdoptionRequestController::class, 'rejectAdoptionRequest'])->name('admin.adoption.reject');
     // Route::resource('users', AdminUserController::class);
 });
 

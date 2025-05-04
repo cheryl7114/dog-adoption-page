@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dog;
 use App\Models\User;
-// Uncomment when you create these models
-// use App\Models\AdoptionRequest;
+use App\Models\AdoptionRequest;
 
 class AdminController extends Controller
 {

@@ -30,6 +30,6 @@ class AdoptionRequestController extends Controller
             'status' => 'pending',
         ]);
 
-        return redirect()->route('adoption.create', $dog)->with('success', 'Your adoption request has been submitted!');
+        return redirect()->route('adoption.create', $dog)->with('success', 'Your adoption request has been submitted! Our team will be in touch with you within 3-5 working days.');
     }
 }

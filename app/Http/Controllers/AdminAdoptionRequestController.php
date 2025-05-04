@@ -1,15 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App\Models\AdoptionRequest;
 
 class AdminAdoptionRequestController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $adoptionRequests = AdoptionRequest::with(['dog', 'user'])->latest()->paginate(15);
-        return view('admin.adoption', compact('adoptionRequests'));
+        $status = $request->query('status');
+        $adoptionRequests = \App\Models\AdoptionRequest::with(['dog', 'user'])
+            ->when($status, fn($q) => $q->where('status', $status))
+            ->latest()
+            ->paginate(15)
+            ->appends(['status' => $status]);
+        return view('admin.adoption', compact('adoptionRequests', 'status'));
     }
 
     public function approveAdoptionRequest(AdoptionRequest $adoptionRequest)

@@ -15,7 +15,15 @@ Route::get('/dogs/{id}', [DogController::class, 'show']);
 // admin routes
 Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
-    // Route::resource('dogs', AdminDogController::class);
+    Route::resource('dogs', AdminDogController::class)->names([
+        'index' => 'admin.dogs.index',
+        'create' => 'admin.dogs.create',
+        'store' => 'admin.dogs.store',
+        'show' => 'admin.dogs.show',
+        'edit' => 'admin.dogs.edit',
+        'update' => 'admin.dogs.update',
+        'destroy' => 'admin.dogs.destroy',
+    ]);
     // Route::resource('adoption-requests', AdminAdoptionRequestController::class);
     // Route::resource('users', AdminUserController::class);
 });

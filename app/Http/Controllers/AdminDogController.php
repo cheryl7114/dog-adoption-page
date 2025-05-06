@@ -49,7 +49,7 @@ class AdminDogController extends Controller
         $dog->size = $validated['size'];
         
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('dogs', 'public');
+            $path = $request->file('image')->store('images/dogs', 'public');
             $dog->image_path = $path;
         }
         
@@ -99,11 +99,10 @@ class AdminDogController extends Controller
         
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($dog->image) {
-                Storage::disk('public')->delete($dog->image);
+            if ($dog->image_path) {
+                Storage::disk('public')->delete($dog->image_path);
             }
-            
-            $path = $request->file('image')->store('dogs', 'public');
+            $path = $request->file('image')->store('images/dogs', 'public');
             $dog->image_path = $path;
         }
         
@@ -118,9 +117,8 @@ class AdminDogController extends Controller
      */
     public function destroy(Dog $dog)
     {
-        // Delete image if exists
-        if ($dog->image) {
-            Storage::disk('public')->delete($dog->image);
+        if ($dog->image_path) {
+            Storage::disk('public')->delete($dog->image_path);
         }
         
         $dog->delete();

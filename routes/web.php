@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DogController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminDogController;
 use App\Http\Controllers\AdminAdoptionRequestController;
 use App\Http\Controllers\AdoptionRequestController;
 

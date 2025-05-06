@@ -27,7 +27,7 @@
                     <a href="{{ route('admin.adoption') }}" class="flex items-center px-6 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-700">
                         Adoption Requests
                     </a>
-                    <a href="#" class="flex items-center px-6 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-700">
+                    <a href="{{ route('admin.users') }}" class="flex items-center px-6 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-700">
                         Users
                     </a>
                 </nav>

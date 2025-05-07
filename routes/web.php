@@ -37,4 +37,7 @@ Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware
 Route::get('/adoption/{dog}', [AdoptionRequestController::class, 'create'])->name('adoption.create');
 Route::post('/adoption/{dog}', [AdoptionRequestController::class, 'store'])->name('adoption.store');
 
+Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'show'])->name('contact');
+Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'send'])->name('contact.send');
+
 require __DIR__.'/auth.php';

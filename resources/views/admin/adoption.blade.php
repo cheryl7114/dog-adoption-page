@@ -29,24 +29,24 @@
                             </svg>
                         </button>
                         <div id="status-dropdown" class="absolute left-0 top-full mt-2 w-32 bg-white border rounded shadow-lg z-50 hidden"
-    onclick="event.stopPropagation()">
-    <a href="{{ route('admin.adoption', request()->except(['status','page'])) }}"
-        class="block px-4 py-2 text-sm hover:bg-gray-100 {{ !request('status') ? 'font-bold text-orange-600' : '' }}">
-        All
-    </a>
-    <a href="{{ route('admin.adoption', array_merge(request()->except('page'), ['status' => 'pending'])) }}"
-        class="block px-4 py-2 text-sm hover:bg-gray-100 {{ request('status') === 'pending' ? 'font-bold text-orange-600' : '' }}">
-        Pending
-    </a>
-    <a href="{{ route('admin.adoption', array_merge(request()->except('page'), ['status' => 'approved'])) }}"
-        class="block px-4 py-2 text-sm hover:bg-gray-100 {{ request('status') === 'approved' ? 'font-bold text-green-700' : '' }}">
-        Approved
-    </a>
-    <a href="{{ route('admin.adoption', array_merge(request()->except('page'), ['status' => 'rejected'])) }}"
-        class="block px-4 py-2 text-sm hover:bg-gray-100 {{ request('status') === 'rejected' ? 'font-bold text-red-700' : '' }}">
-        Rejected
-    </a>
-</div>
+                            onclick="event.stopPropagation()">
+                            <a href="{{ route('admin.adoption', request()->except(['status','page'])) }}"
+                                class="block px-4 py-2 text-sm hover:bg-gray-100 {{ !request('status') ? 'font-bold text-orange-600' : '' }}">
+                                All
+                            </a>
+                            <a href="{{ route('admin.adoption', array_merge(request()->except('page'), ['status' => 'pending'])) }}"
+                                class="block px-4 py-2 text-sm hover:bg-gray-100 {{ request('status') === 'pending' ? 'font-bold text-orange-600' : '' }}">
+                                Pending
+                            </a>
+                            <a href="{{ route('admin.adoption', array_merge(request()->except('page'), ['status' => 'approved'])) }}"
+                                class="block px-4 py-2 text-sm hover:bg-gray-100 {{ request('status') === 'approved' ? 'font-bold text-green-700' : '' }}">
+                                Approved
+                            </a>
+                            <a href="{{ route('admin.adoption', array_merge(request()->except('page'), ['status' => 'rejected'])) }}"
+                                class="block px-4 py-2 text-sm hover:bg-gray-100 {{ request('status') === 'rejected' ? 'font-bold text-red-700' : '' }}">
+                                Rejected
+                            </a>
+                        </div>
                     </div>
                 </th>
                 <th class="py-3 px-6">Actions</th>
@@ -95,7 +95,7 @@
                         @endif
                     </td>
                     <td class="py-4 px-6 text-right">
-                        <button 
+                        <button
                             type="button"
                             class="inline-flex items-center justify-center bg-orange-100 text-orange-600 hover:bg-orange-200 rounded-full w-8 h-8 focus:outline-none"
                             title="View Details"

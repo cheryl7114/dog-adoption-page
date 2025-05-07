@@ -24,7 +24,7 @@
     </div>
 
     <!-- Featured Dogs Section -->
-    <section class="py-16 px-4 bg-white mt-10">
+    <section class="pt-28 pb-20 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Meet Some of Our Friends <span class="text-orange-500">Looking for Homes</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -100,7 +100,7 @@
     </section>
 
     <!-- Testimonial Section -->
-    <section class="py-16 px-4 bg-white mb-20">
+    <section class="pt-16 pb-32 px-4 bg-white">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Success <span class="text-orange-500">Stories</span></h2>
 

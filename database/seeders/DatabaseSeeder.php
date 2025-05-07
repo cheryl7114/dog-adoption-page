@@ -19,11 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DogSeeder::class,
             UserSeeder::class, 
-        ]);
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            AdoptionRequestSeeder::class,
         ]);
     }
 }

@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-orange-500 text-white py-16 mb-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl font-extrabold mb-4">Find Your Perfect Companion</h1>
-        <p class="text-xl max-w-2xl mx-auto">Browse our selection of wonderful dogs looking for their forever homes. Each one has a unique personality and is ready to share their love with you.</p>
+<div class="min-h-[60vh] flex flex-col justify-center items-center px-4 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1200&q=80'); filter: brightness(0.85) contrast(1.1)"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-yellow-50/70 to-orange-50/70"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 flex flex-col items-center justify-center w-full">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-orange-600 mb-4 drop-shadow">Find Your Perfect Companion <span class="align-middle">🐾</span></h1>
+        <p class="text-lg md:text-xl mb-8 max-w-xl text-gray-700 drop-shadow">
+            Browse our selection of wonderful dogs looking for their furever homes.
+        </p>
     </div>
 </div>
 

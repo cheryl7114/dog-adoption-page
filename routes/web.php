@@ -40,4 +40,5 @@ Route::post('/adoption/{dog}', [AdoptionRequestController::class, 'store'])->nam
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'send'])->name('contact.send');
 
+Route::view('/about', 'about')->name('about');
 require __DIR__.'/auth.php';

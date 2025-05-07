@@ -20,25 +20,25 @@
             @endif
             
             <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <!-- Donation Info Section -->
-                <div class="p-6 md:p-8 bg-gradient-to-r from-orange-500 to-amber-500 text-white">
-                    <h2 class="text-2xl font-bold mb-4">Make a Difference Today</h2>
-                    <p class="mb-4">Your donation helps us rescue, care for, and find homes for dogs in need. Every dollar makes a difference in a dog's life.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-                        <div class="bg-white bg-opacity-20 p-4 rounded-lg">
-                            <span class="block text-3xl font-bold mb-2">€25</span>
-                            <span class="block text-sm">Feeds a dog for two weeks</span>
-                        </div>
-                        <div class="bg-white bg-opacity-20 p-4 rounded-lg">
-                            <span class="block text-3xl font-bold mb-2">€50</span>
-                            <span class="block text-sm">Provides medical care for one dog</span>
-                        </div>
-                        <div class="bg-white bg-opacity-20 p-4 rounded-lg">
-                            <span class="block text-3xl font-bold mb-2">€100</span>
-                            <span class="block text-sm">Sponsors a dog's full adoption journey</span>
-                        </div>
+            <!-- Donation Info Section -->
+            <div class="p-6 md:p-8 bg-white text-gray-800">
+                <h2 class="text-2xl font-bold mb-4">Make a Difference Today</h2>
+                <p class="mb-4">Your donation helps us rescue, care for, and find homes for dogs in need. Every euro makes a difference in a dog's life.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-4 rounded-lg text-white">
+                        <span class="block text-3xl font-bold mb-2">€25</span>
+                        <span class="block text-sm">Feeds a dog for two weeks</span>
+                    </div>
+                    <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-4 rounded-lg text-white">
+                        <span class="block text-3xl font-bold mb-2">€50</span>
+                        <span class="block text-sm">Provides medical care for one dog</span>
+                    </div>
+                    <div class="bg-gradient-to-r from-orange-500 to-amber-500 p-4 rounded-lg text-white">
+                        <span class="block text-3xl font-bold mb-2">€100</span>
+                        <span class="block text-sm">Sponsors a dog's full adoption journey</span>
                     </div>
                 </div>
+            </div>
 
                 <!-- Donation Form -->
                 <div class="p-6 md:p-8">
@@ -87,8 +87,8 @@
                         <div>
                             <div class="flex items-center mb-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a4 4 0 00-4-4H8.8a4 4 0 00-2.6 1L3 6v7M6 18h.01" />
-                                </svg>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                  </svg>
                                 <h4 class="font-medium">Volunteer</h4>
                             </div>
                             <p class="text-sm text-gray-600">Help walk, socialize, and care for our dogs.</p>

@@ -3,7 +3,7 @@
 @section('content')
     <!-- Hero Section -->
     <div class="min-h-[70vh] flex flex-col justify-center items-center px-4 text-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('../images/dog_background.jpg'); filter: brightness(0.9) contrast(1.1)"></div>
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('storage/images/dogs/dog_background.jpg') }}'); filter: brightness(0.9) contrast(1.1)"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-yellow-50/70 to-orange-50/70"></div>
 
         <!-- Content -->

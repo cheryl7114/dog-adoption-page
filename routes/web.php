@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminDogController;
 use App\Http\Controllers\AdminAdoptionRequestController;
 use App\Http\Controllers\AdoptionRequestController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\DonateController;
 
 // Home route
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -36,6 +37,8 @@ Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware
 
 Route::get('/adoption/{dog}', [AdoptionRequestController::class, 'create'])->name('adoption.create');
 Route::post('/adoption/{dog}', [AdoptionRequestController::class, 'store'])->name('adoption.store');
+Route::get('/donate', [DonateController::class, 'index'])->name('donate');
+Route::post('/donate/process', [DonateController::class, 'process'])->name('donate.process');
 
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'send'])->name('contact.send');

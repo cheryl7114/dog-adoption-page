@@ -20,8 +20,8 @@
                 <ul class="space-y-2">
                     <li><a href="/dogs" class="hover:text-yellow-200 transition">Available Dogs</a></li>
                     <li><a href="/about" class="hover:text-yellow-200 transition">About Us</a></li>
-                    <li><a href="/adoption-process" class="hover:text-yellow-200 transition">Adoption Process</a></li>
-                    <li><a href="/faqs" class="hover:text-yellow-200 transition">FAQs</a></li>
+                    <li><a href="/contact" class="hover:text-yellow-200 transition">Contact Us</a></li>
+                    <li><a href="/donate" class="hover:text-yellow-200 transition">Donate</a></li>
                 </ul>
             </div>
             

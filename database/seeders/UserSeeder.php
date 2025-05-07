@@ -26,10 +26,38 @@ class UserSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        // Example normal user
+        // Example normal users
         User::create([
             'name' => 'Normal User',
             'email' => 'user@example.com',
+            'password' => Hash::make('password'),
+            'role' => 'user',
+        ]);
+
+        User::create([
+            'name' => 'Jane Doe',
+            'email' => 'jane@example.com',
+            'password' => Hash::make('password'),
+            'role' => 'user',
+        ]);
+
+        User::create([
+            'name' => 'John Smith',
+            'email' => 'john@example.com',
+            'password' => Hash::make('password'),
+            'role' => 'user',
+        ]);
+
+        User::create([
+            'name' => 'Emily Brown',
+            'email' => 'emily@example.com',
+            'password' => Hash::make('password'),
+            'role' => 'user',
+        ]);
+        
+        User::create([
+            'name' => 'Michael Green',
+            'email' => 'michael@example.com',
             'password' => Hash::make('password'),
             'role' => 'user',
         ]);

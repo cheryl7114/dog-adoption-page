@@ -14,13 +14,13 @@
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navbar')
 
-        <div class="flex">
+        <div class="flex min-h-screen">
             <!-- Admin Sidebar -->
-            <div class="hidden md:block w-64 bg-white shadow-md">
+            <div class="hidden md:block w-64 bg-white shadow-md flex flex-col min-h-screen">
                 <div class="p-6">
                     <h2 class="text-lg font-semibold text-gray-700">Admin Panel</h2>
                 </div>
-                <nav class="mt-6">
+                <nav class="mt-6 flex-1">
                     <a href="{{ route('admin.dashboard') }}" class="flex items-center px-6 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-700 {{ request()->routeIs('admin.dashboard') ? 'bg-orange-100 text-orange-700' : '' }}">
                         Dashboard
                     </a>
@@ -32,7 +32,7 @@
                     </a>
                 </nav>
             </div>
-
+        
             <!-- Main Content -->
             <div class="flex-1 p-6">
                 @yield('content')

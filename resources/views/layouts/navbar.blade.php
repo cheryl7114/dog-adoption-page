@@ -14,8 +14,7 @@
                 <a href="/dogs" class="{{ Request::is('dogs*') ? 'bg-orange-600 text-white' : 'text-white hover:bg-orange-600' }} px-3 py-2 rounded-md font-medium">Available Dogs</a>
                 <a href="/about" class="{{ Request::is('about*') ? 'bg-orange-600 text-white' : 'text-white hover:bg-orange-600' }} px-3 py-2 rounded-md font-medium">About Us</a>
                 <a href="/contact" class="{{ Request::is('contact*') ? 'bg-orange-600 text-white' : 'text-white hover:bg-orange-600' }} px-3 py-2 rounded-md font-medium">Contact</a>
-                <a href="/donate" class="{{ Request::is('contact*') ? 'bg-orange-600 text-white' : 'text-white hover:bg-orange-600' }} px-3 py-2 rounded-md font-medium">Donate</a>
-            </div>
+                <a href="/donate" class="{{ Request::is('donate*') ? 'bg-orange-600 text-white' : 'text-white hover:bg-orange-600' }} px-3 py-2 rounded-md font-medium">Donate</a>            </div>
             <!-- Auth Navigation -->
             <div class="hidden lg:flex items-center space-x-4">
                 @guest
@@ -71,8 +70,7 @@
             <a href="/dogs" class="{{ Request::is('dogs*') ? 'text-white bg-orange-600' : 'text-white hover:bg-orange-600' }} block px-3 py-2 rounded-md font-medium">Available Dogs</a>
             <a href="/about" class="{{ Request::is('about*') ? 'text-white bg-orange-600' : 'text-white hover:bg-orange-600' }} block px-3 py-2 rounded-md font-medium">About Us</a>
             <a href="/contact" class="{{ Request::is('contact*') ? 'text-white bg-orange-600' : 'text-white hover:bg-orange-600' }} block px-3 py-2 rounded-md font-medium">Contact</a>
-            <a href="/donate" class="bg-white text-orange-600 block px-3 py-2 rounded-md font-bold hover:bg-yellow-100">Donate</a>
-            
+            <a href="/donate" class="{{ Request::is('donate*') ? 'bg-orange-600 text-white' : 'text-white hover:bg-orange-600' }} px-3 py-2 rounded-md font-medium">Donate</a>            
             <!-- Mobile Auth Navigation -->
             @guest
                 <a href="{{ route('login') }}" class="block text-white hover:bg-orange-600 px-3 py-2 rounded-md font-medium">Login</a>

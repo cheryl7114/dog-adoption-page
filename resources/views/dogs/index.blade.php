@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-orange-500 text-white py-16 mb-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl font-extrabold mb-4">Find Your Perfect Companion</h1>
-        <p class="text-xl max-w-2xl mx-auto">Browse our selection of wonderful dogs looking for their forever homes. Each one has a unique personality and is ready to share their love with you.</p>
+<div class="min-h-[60vh] flex flex-col justify-center items-center px-4 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1200&q=80'); filter: brightness(0.85) contrast(1.1)"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-yellow-50/70 to-orange-50/70"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 flex flex-col items-center justify-center w-full">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-orange-600 mb-4 drop-shadow">Find Your Perfect Companion <span class="align-middle">🐾</span></h1>
+        <p class="text-lg md:text-xl mb-8 max-w-xl text-gray-700 drop-shadow">
+            Browse our selection of wonderful dogs looking for their furever homes.
+        </p>
     </div>
 </div>
 
@@ -90,11 +96,11 @@
         <main class="md:w-3/4 w-full">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse($dogs as $dog)
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg transition hover:shadow-xl hover:-translate-y-1">
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg transition hover:shadow-xl hover:-translate-y-1 flex flex-col">
                     <div class="h-64 overflow-hidden">
                         <img src="{{ asset('storage/' . $dog->image_path) }}" alt="{{ $dog->name }}" class="w-full h-full object-cover">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <div class="flex justify-between items-start">
                             <div>
                                 <h3 class="text-xl font-bold text-gray-800">{{ $dog->name }}</h3>
@@ -103,9 +109,13 @@
                             <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{{ ucfirst($dog->size) }}</span>
                         </div>
                         <p class="text-gray-600 my-4 line-clamp-3">{{ $dog->description }}</p>
-                        <a href="/dogs/{{ $dog->id }}" class="inline-block bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
-                            Meet {{ $dog->name }}
-                        </a>
+                        
+                        {{-- Button at the bottom --}}
+                        <div class="mt-auto pt-4">
+                            <a href="/dogs/{{ $dog->id }}" class="inline-block bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
+                                Meet {{ $dog->name }}
+                            </a>
+                        </div>
                     </div>
                 </div>
                 @empty

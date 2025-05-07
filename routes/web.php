@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DogController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminDogController;
 use App\Http\Controllers\AdminAdoptionRequestController;
 use App\Http\Controllers\AdoptionRequestController;
+use App\Http\Controllers\AdminUserController;
 
 // Home route
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -16,7 +18,7 @@ Route::get('/dogs/{id}', [DogController::class, 'show']);
 
 // admin routes
 Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::resource('dogs', AdminDogController::class)->names([
         'index' => 'admin.dogs.index',
         'create' => 'admin.dogs.create',
@@ -29,7 +31,7 @@ Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware
     Route::get('/admin/adoption', [AdminAdoptionRequestController::class, 'index'])->name('admin.adoption');
     Route::patch('/admin/adoption/{adoptionRequest}/approve', [AdminAdoptionRequestController::class, 'approveAdoptionRequest'])->name('admin.adoption.approve');
     Route::patch('/admin/adoption/{adoptionRequest}/reject', [AdminAdoptionRequestController::class, 'rejectAdoptionRequest'])->name('admin.adoption.reject');
-    // Route::resource('users', AdminUserController::class);
+    Route::get('/users', [AdminUserController::class, 'index'])->name('admin.users');
 });
 
 Route::get('/adoption/{dog}', [AdoptionRequestController::class, 'create'])->name('adoption.create');

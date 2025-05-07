@@ -13,7 +13,7 @@ class AdminDogController extends Controller
      */
     public function index()
     {
-        $dogs = Dog::latest()->paginate(10);
+        $dogs = Dog::orderBy('id', 'asc')->paginate(10);
         return view('admin.dogs.index', compact('dogs'));
     }
 
@@ -36,6 +36,7 @@ class AdminDogController extends Controller
             'age' => 'required|numeric|min:0',
             'description' => 'required|string',
             'status' => 'required|in:available,adopted,pending',
+            'size' => 'required|string|in:small,medium,large',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
@@ -45,15 +46,16 @@ class AdminDogController extends Controller
         $dog->age = $validated['age'];
         $dog->description = $validated['description'];
         $dog->status = $validated['status'];
+        $dog->size = $validated['size'];
         
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('dogs', 'public');
-            $dog->image = $path;
+            $path = $request->file('image')->store('images/dogs', 'public');
+            $dog->image_path = $path;
         }
         
         $dog->save();
         
-        return redirect()->route('admin.dogs.index')
+        return redirect()->route('admin.dashboard')
             ->with('success', 'Dog created successfully!');
     }
 
@@ -84,6 +86,7 @@ class AdminDogController extends Controller
             'age' => 'required|numeric|min:0',
             'description' => 'required|string',
             'status' => 'required|in:available,adopted,pending',
+            'size' => 'required|string|in:small,medium,large',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
@@ -92,20 +95,20 @@ class AdminDogController extends Controller
         $dog->age = $validated['age'];
         $dog->description = $validated['description'];
         $dog->status = $validated['status'];
+        $dog->size = $validated['size'];
         
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($dog->image) {
-                Storage::disk('public')->delete($dog->image);
+            if ($dog->image_path) {
+                Storage::disk('public')->delete($dog->image_path);
             }
-            
-            $path = $request->file('image')->store('dogs', 'public');
-            $dog->image = $path;
+            $path = $request->file('image')->store('images/dogs', 'public');
+            $dog->image_path = $path;
         }
         
         $dog->save();
         
-        return redirect()->route('admin.dogs.index')
+        return redirect()->route('admin.dashboard')
             ->with('success', 'Dog updated successfully!');
     }
 
@@ -114,14 +117,13 @@ class AdminDogController extends Controller
      */
     public function destroy(Dog $dog)
     {
-        // Delete image if exists
-        if ($dog->image) {
-            Storage::disk('public')->delete($dog->image);
+        if ($dog->image_path) {
+            Storage::disk('public')->delete($dog->image_path);
         }
         
         $dog->delete();
         
-        return redirect()->route('admin.dogs.index')
+        return redirect()->route('admin.dashboard')
             ->with('success', 'Dog deleted successfully!');
     }
 }

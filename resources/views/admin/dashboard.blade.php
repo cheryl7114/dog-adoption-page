@@ -13,6 +13,13 @@
                     Add New Dog
                 </a>
             </div>
+
+            <!-- Success Message -->
+            @if(session('success'))
+                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6" role="alert">
+                    <p>{{ session('success') }}</p>
+                </div>
+            @endif
             
             <!-- Statistics Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
@@ -90,7 +97,7 @@
                 <div class="p-6">
                     <h2 class="text-lg font-semibold text-gray-800 mb-4">All Dogs</h2>
                     
-                    @if($dogs->isEmpty())
+                    @if($dogs->total() === 0)
                         <div class="text-center py-8">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -140,7 +147,12 @@
                                                     <form method="POST" action="{{ route('admin.dogs.destroy', $dog->id) }}" class="inline">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="font-medium text-red-600 hover:underline" onclick="return confirm('Are you sure you want to delete this dog?')">
+                                                        <button type="button" class="text-red-600 hover:text-red-900" 
+                                                            x-data=""
+                                                            x-on:click.prevent="
+                                                                $dispatch('open-modal', 'confirm-dog-deletion');
+                                                                document.getElementById('delete-dog-form').action = '{{ route('admin.dogs.destroy', $dog->id) }}';
+                                                            ">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                                                             </svg>
@@ -153,6 +165,12 @@
                                 </tbody>
                             </table>
                         </div>
+                    <!-- If the current page has no dogs but there are dogs on other pages -->
+                    @if($dogs->isEmpty() && $dogs->total() > 0)
+                        <div class="text-center py-8">
+                            <p class="text-gray-500">No dogs found on this page.</p>
+                        </div>
+                    @endif
                         
                         <!-- Pagination -->
                         <div class="mt-4">
@@ -163,4 +181,33 @@
             </div>
         </div>
     </div>
+<!-- Delete Confirmation Modal -->
+<x-modal name="confirm-dog-deletion" :show="false" focusable>
+    <form id="delete-dog-form" method="POST" class="p-6">
+        @csrf
+        @method('DELETE')
+        
+        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+            Are you sure you want to delete this dog?
+        </h2>
+        
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+            Once deleted, this dog's profile will be permanently removed.
+        </p>
+        
+        <div class="mt-6 flex justify-end">
+            <button type="button" class="mr-3 inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-500 rounded-md font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150"
+                    x-on:click="$dispatch('close-modal', 'confirm-dog-deletion')">
+                Cancel
+            </button>
+            
+            <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+                Delete Dog
+            </button>
+        </div>
+    </form>
+</x-modal>
 @endsection

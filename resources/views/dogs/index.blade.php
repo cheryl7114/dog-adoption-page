@@ -92,7 +92,7 @@
                 @forelse($dogs as $dog)
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg transition hover:shadow-xl hover:-translate-y-1">
                     <div class="h-64 overflow-hidden">
-                        <img src="{{ asset($dog->image_path) }}" alt="{{ $dog->name }}" class="w-full h-full object-cover">
+                        <img src="{{ asset('storage/' . $dog->image_path) }}" alt="{{ $dog->name }}" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start">

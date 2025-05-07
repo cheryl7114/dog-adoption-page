@@ -12,7 +12,7 @@ class AdminController extends Controller
     public function index()
     {
         // Get dogs with pagination
-        $dogs = Dog::latest()->paginate(10);
+        $dogs = Dog::orderBy('id', 'asc')->paginate(10);
         
         // Get stats for the dashboard
         $availableDogs = Dog::where('status', 'available')->count();

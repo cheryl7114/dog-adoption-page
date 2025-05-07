@@ -16,9 +16,6 @@
                 <a href="/dogs" class="bg-orange-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-orange-600 transition shadow-md">
                     Find Your Perfect Match
                 </a>
-                <a href="/how-it-works" class="text-orange-600 border-2 border-orange-500 px-8 py-3 rounded-lg text-lg font-medium hover:bg-orange-100 transition shadow-md">
-                    How It Works
-                </a>
             </div>
         </div>
     </div>

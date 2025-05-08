@@ -3,14 +3,14 @@
 @section('content')
 <div class="relative py-16">
     <!-- Background image with overlay -->
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-         style="background-image: url('{{ asset('storage/images/dogs/dog_background.jpg') }}'); filter: brightness(0.3)"></div>
-    
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+         style="background-image: url('{{ asset('storage/images/dog_background.jpg') }}'); filter: brightness(0.3)"></div>
+
     <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto">
             <!-- Page Title -->
             <h1 class="text-4xl font-extrabold text-center text-white mb-8">Support Our Mission</h1>
-            
+
             <!-- Success Message -->
             @if(session('success'))
                 <div class="mb-8 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
@@ -18,7 +18,7 @@
                     <p>{{ session('success') }}</p>
                 </div>
             @endif
-            
+
             <div class="bg-white rounded-lg shadow-xl overflow-hidden">
             <!-- Donation Info Section -->
             <div class="p-6 md:p-8 bg-white text-gray-800">
@@ -43,30 +43,30 @@
                 <!-- Donation Form -->
                 <div class="p-6 md:p-8">
                     <h3 class="text-xl font-semibold mb-6">Choose Your Donation Method</h3>
-                    
+
                     <!-- Donation Tabs -->
                     <div x-data="{ tab: 'paypal' }" class="mb-8">
                         <div class="flex border-b border-gray-200">
-                            <button @click="tab = 'paypal'" 
+                            <button @click="tab = 'paypal'"
                                     :class="{'border-b-2 border-orange-500 text-orange-600': tab === 'paypal'}"
                                     class="py-2 px-4 font-medium">
                                 PayPal
                             </button>
-                            <button @click="tab = 'card'" 
+                            <button @click="tab = 'card'"
                                     :class="{'border-b-2 border-orange-500 text-orange-600': tab === 'card'}"
                                     class="py-2 px-4 font-medium">
                                 Credit Card
                             </button>
                         </div>
-                        
+
                         <!-- PayPal Panel -->
                         <div x-show="tab === 'paypal'" class="mt-6">
                             <p class="mb-4 text-gray-600">Make a secure donation through PayPal</p>
-                            
+
                             <!-- PayPal Button Container -->
                             <div class="flex flex-col space-y-4">
                                 <div id="paypal-button-container" style="min-height:150px"></div>
-                                
+
                                 <!-- Custom Amount -->
                                 <div class="mt-4">
                                     <label for="custom-amount" class="block text-sm font-medium text-gray-700 mb-1">Or enter a custom amount:</label>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Additional Info -->
                 <div class="p-6 md:p-8 bg-gray-50 border-t">
                     <h3 class="text-lg font-medium mb-4">Other Ways to Help</h3>
@@ -118,15 +118,15 @@
     </div>
 </div>
 <!-- Success Modal -->
-<div x-data="{ open: false, donorName: '', donationAmount: '' }" 
-     x-show="open" 
+<div x-data="{ open: false, donorName: '', donationAmount: '' }"
+     x-show="open"
      @payment-success.window="open = true; donorName = $event.detail.name; donationAmount = $event.detail.amount"
-     class="fixed inset-0 z-50 overflow-y-auto" 
+     class="fixed inset-0 z-50 overflow-y-auto"
      x-cloak>
-    
+
     <!-- Background overlay -->
     <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity" x-show="open" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"></div>
-    
+
     <div class="flex items-center justify-center min-h-screen p-4">
         <!-- Modal content -->
         <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full"
@@ -134,25 +134,25 @@
              x-transition:enter="ease-out duration-300"
              x-transition:enter-start="opacity-0 scale-95"
              x-transition:enter-end="opacity-100 scale-100">
-            
+
             <!-- Success icon -->
             <div class="bg-gradient-to-r from-green-500 to-green-600 py-6 px-6 flex items-center justify-center">
                 <svg class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             </div>
-            
+
             <!-- Content -->
             <div class="p-6">
                 <h3 class="text-xl font-bold text-gray-900 mb-4">Donation Successful!</h3>
                 <p class="text-gray-700 mb-3">Thank you, <span x-text="donorName" class="font-semibold"></span>! Your donation of <span x-text="'€' + donationAmount" class="font-semibold"></span> has been processed successfully.</p>
                 <p class="text-gray-600 text-sm mb-4">Your generosity will help us care for dogs in need and find them loving homes.</p>
-                
+
                 <!-- Dogs celebrating image -->
                 <div class="rounded-md overflow-hidden mb-4">
                     <img src="{{ asset('storage/images/dogs/happy-dog.jpg') }}" alt="Happy Dogs" class="w-full h-auto" onerror="this.style.display='none'">
                 </div>
-                
+
                 <div class="flex justify-end mt-4">
                     <button @click="open = false" class="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
                         Close
@@ -189,18 +189,18 @@
                 }]
             });
         },
-        
+
         // Finalize the transaction
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(details) {
                 // Show a success message
-                window.dispatchEvent(new CustomEvent('payment-success', { 
-                detail: { 
+                window.dispatchEvent(new CustomEvent('payment-success', {
+                detail: {
                 name: details.payer.name.given_name,
                 amount: document.getElementById('custom-amount').value || '50'
                 }
                 }));
-                
+
                 // Optional: Submit to your server for record keeping
                 fetch('/donate/process', {
                     method: 'POST',

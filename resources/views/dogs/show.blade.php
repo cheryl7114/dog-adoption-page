@@ -21,7 +21,7 @@
             <!-- Dog Image -->
             <div>
                 <div class="bg-white p-4 rounded-xl shadow-md">
-                    <img src="{{ asset('storage/' . $dog->image_path) }}" alt="{{ $dog->name }}" class="w-full h-auto rounded-lg object-cover aspect-square">
+                    <img src="{{ asset('storage/images' . $dog->image_path) }}" alt="{{ $dog->name }}" class="w-full h-auto rounded-lg object-cover aspect-square">
                 </div>
             </div>
 
@@ -67,7 +67,7 @@
                 @foreach($otherDogs as $other)
                     <div class="bg-white rounded-xl shadow-md overflow-hidden">
                         <a href="{{ url('/dogs/'.$other->id) }}">
-                            <img src="{{ asset('storage/' . $other->image_path) }}" alt="{{ $other->name }}" class="w-full h-56 object-cover">
+                            <img src="{{ asset('storage/images' . $other->image_path) }}" alt="{{ $other->name }}" class="w-full h-56 object-cover">
                         </a>
                         <div class="p-4">
                             <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $other->name }}</h3>

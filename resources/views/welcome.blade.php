@@ -3,7 +3,7 @@
 @section('content')
     <!-- Hero Section -->
     <div class="min-h-[70vh] flex flex-col justify-center items-center px-4 text-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('storage/images/dogs/dog_background.jpg') }}'); filter: brightness(0.9) contrast(1.1)"></div>
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('storage/images/dog_background.jpg') }}'); filter: brightness(0.9) contrast(1.1)"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-yellow-50/70 to-orange-50/70"></div>
 
         <!-- Content -->
@@ -28,7 +28,7 @@
                 @forelse($featuredDogs as $dog)
                 <div class="bg-yellow-50 rounded-xl overflow-hidden shadow-lg transition hover:shadow-xl hover:-translate-y-1">
                     <div class="h-64 overflow-hidden">
-                        <img src="{{ asset('storage/' . $dog->image_path) }}" alt="{{ $dog->name }}" class="w-full h-full object-cover">
+                        <img src="{{ asset('storage/images/' . $dog->image_path) }}" alt="{{ $dog->name }}" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-800">{{ $dog->name }}</h3>

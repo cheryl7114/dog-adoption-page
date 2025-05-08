@@ -48,7 +48,7 @@
 
                             <div>
                                 <label for="size" class="block text-sm font-medium text-gray-700">Size</label>
-                                <select name="size" id="size" 
+                                <select name="size" id="size"
                                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50">
                                     <option value="small" {{ (old('size', $dog->size) == 'small') ? 'selected' : '' }}>Small</option>
                                     <option value="medium" {{ (old('size', $dog->size) == 'medium') ? 'selected' : '' }}>Medium</option>
@@ -64,14 +64,14 @@
 
                             <div>
                                 <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-                                <select name="status" id="status" 
+                                <select name="status" id="status"
                                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50">
                                     <option value="available" {{ (old('status', $dog->status) == 'available') ? 'selected' : '' }}>Available</option>
                                     <option value="pending" {{ (old('status', $dog->status) == 'pending') ? 'selected' : '' }}>Pending Adoption</option>
                                     <option value="adopted" {{ (old('status', $dog->status) == 'adopted') ? 'selected' : '' }}>Adopted</option>
                                 </select>
                             </div>
-                            
+
                             <div class="md:col-span-2">
                                 <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
                                 <textarea name="description" id="description" rows="4"
@@ -79,16 +79,16 @@
                             </div>
                             <div class="md:col-span-2">
                                 <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Dog Photo</label>
-                                
+
                                 @if($dog->image_path)
                                     <div class="mb-3">
                                         <p class="text-sm text-gray-500 mb-1">Current image:</p>
-                                        <img src="{{ asset('storage/' . $dog->image_path) }}" 
+                                        <img src="{{ asset('storage/images' . $dog->image_path) }}"
                                             alt="{{ $dog->name }}"
                                             class="h-32 w-auto object-cover rounded-md border border-gray-200">
                                     </div>
                                 @endif
-                                
+
                                 <div class="mt-1 flex items-center">
                                     <div id="preview" class="hidden w-32 h-32 rounded-md border-2 border-dashed border-gray-300 flex items-center justify-center mr-4">
                                         <img class="max-h-full max-w-full object-cover rounded" id="image-preview" src="#" alt="Preview">
@@ -125,12 +125,12 @@
                 const reader = new FileReader();
                 const preview = document.getElementById('preview');
                 const imagePreview = document.getElementById('image-preview');
-                
+
                 reader.onload = function(e) {
                     imagePreview.src = e.target.result;
                     preview.classList.remove('hidden');
                 }
-                
+
                 reader.readAsDataURL(file);
             }
         });

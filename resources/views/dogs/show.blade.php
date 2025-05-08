@@ -21,7 +21,7 @@
             <!-- Dog Image -->
             <div>
                 <div class="bg-white p-4 rounded-xl shadow-md">
-                    <img src="{{ asset('storage/images' . $dog->image_path) }}" alt="{{ $dog->name }}" class="w-full h-auto rounded-lg object-cover aspect-square">
+                    <img src="{{ asset('storage/images/' . $dog->image_path) }}" alt="{{ $dog->name }}" class="w-full h-auto rounded-lg object-cover aspect-square">
                 </div>
             </div>
 

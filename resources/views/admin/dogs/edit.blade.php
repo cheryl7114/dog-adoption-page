@@ -83,7 +83,7 @@
                                 @if($dog->image_path)
                                     <div class="mb-3">
                                         <p class="text-sm text-gray-500 mb-1">Current image:</p>
-                                        <img src="{{ asset('storage/images' . $dog->image_path) }}"
+                                        <img src="{{ asset('storage/images/' . $dog->image_path) }}"
                                             alt="{{ $dog->name }}"
                                             class="h-32 w-auto object-cover rounded-md border border-gray-200">
                                     </div>

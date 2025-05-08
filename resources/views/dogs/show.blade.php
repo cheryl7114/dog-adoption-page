@@ -67,7 +67,7 @@
                 @foreach($otherDogs as $other)
                     <div class="bg-white rounded-xl shadow-md overflow-hidden">
                         <a href="{{ url('/dogs/'.$other->id) }}">
-                            <img src="{{ asset('storage/images' . $other->image_path) }}" alt="{{ $other->name }}" class="w-full h-56 object-cover">
+                            <img src="{{ asset('storage/' . $other->image_path) }}" alt="{{ $other->name }}" class="w-full h-56 object-cover">
                         </a>
                         <div class="p-4">
                             <h3 class="text-xl font-bold text-gray-800 mb-2">{{ $other->name }}</h3>

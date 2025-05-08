@@ -150,7 +150,7 @@
 
                 <!-- Dogs celebrating image -->
                 <div class="rounded-md overflow-hidden mb-4">
-                    <img src="{{ asset('storage/images/dogs/happy-dog.jpg') }}" alt="Happy Dogs" class="w-full h-auto" onerror="this.style.display='none'">
+                    <img src="{{ asset('storage/images/dogs/happy-dog-background.jpg') }}" alt="Happy Dogs" class="w-full h-auto" onerror="this.style.display='none'">
                 </div>
 
                 <div class="flex justify-end mt-4">
